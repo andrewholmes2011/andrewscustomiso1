@@ -17,7 +17,7 @@ This repository contains the reproducible live-build configuration and customiza
 - Network, audio, Bluetooth, power, and display integration
 - Andrew OS wallpaper, welcome page, desktop entry, and OS identity
 - Debian Live boot environment and graphical Debian Installer integration
-- VirtualBox guest utilities and X11 integration where supported by the Debian archive
+- VirtualBox-first defaults and dedicated guest integration instructions
 - A conservative package set; no security controls or system services are intentionally disabled
 
 ## Repository layout
@@ -56,6 +56,7 @@ Build on a clean Debian 13 amd64 machine or VM. The build needs an internet conn
 ```bash
 git clone https://github.com/andrewholmes2011/andrewscustomiso1.git
 cd andrewscustomiso1
+chmod +x build.sh clean.sh
 sudo ./build.sh
 ```
 
