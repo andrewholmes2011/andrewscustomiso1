@@ -28,6 +28,7 @@ cd andrewscustomiso1
 
 ```bash
 sudo chmod +x build.sh clean.sh
+chmod +x build.sh clean.sh
 sudo ./build.sh
 ```
 
