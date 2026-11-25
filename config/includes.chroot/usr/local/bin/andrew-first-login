@@ -1,0 +1,20 @@
+#!/bin/sh
+set -eu
+
+# This script runs once for each newly created user profile.
+MARKER="$HOME/.config/andrew-os-first-login-done"
+[ -e "$MARKER" ] && exit 0
+
+mkdir -p "$HOME/.config"
+if command -v kwriteconfig6 >/dev/null 2>&1; then
+  kwriteconfig6 --file kdeglobals --group General --key ColorScheme BreezeDark || true
+  kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle Breeze || true
+  kwriteconfig6 --file kdeglobals --group Icons --key Theme breeze-dark || true
+fi
+
+WALLPAPER="/usr/share/backgrounds/andrew-os/wallpaper.svg"
+if command -v plasma-apply-wallpaperimage >/dev/null 2>&1 && [ -r "$WALLPAPER" ]; then
+  plasma-apply-wallpaperimage "$WALLPAPER" >/dev/null 2>&1 || true
+fi
+
+touch "$MARKER"
