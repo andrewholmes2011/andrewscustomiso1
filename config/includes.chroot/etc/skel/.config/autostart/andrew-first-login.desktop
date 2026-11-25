@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Andrew OS First Login Setup
+Comment=Apply Andrew OS desktop defaults for this user
+Exec=/usr/local/bin/andrew-first-login
+Terminal=false
+X-KDE-autostart-phase=1
