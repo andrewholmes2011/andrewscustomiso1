@@ -1,0 +1,25 @@
+#!/bin/sh
+set -eu
+
+# Set stable distribution identity without replacing Debian's package metadata.
+if [ -f /etc/os-release ]; then
+  sed -i 's/^PRETTY_NAME=.*/PRETTY_NAME="Andrew OS (Debian 13)"/' /etc/os-release
+  sed -i 's/^NAME=.*/NAME="Andrew OS"/' /etc/os-release
+fi
+
+printf '%s\n' 'Andrew OS' 'A Debian-based, ChromeOS-inspired Linux desktop.' > /etc/issue
+printf '%s\n' 'andrew-os' > /etc/hostname
+
+# Use the Breeze SDDM theme supplied by Debian; keep the display manager configuration
+# simple so package updates can continue to manage the theme safely.
+mkdir -p /etc/sddm.conf.d
+cat > /etc/sddm.conf.d/andrew-os.conf <<'EOF'
+[Theme]
+Current=breeze
+EOF
+
+# Make local project launchers executable.
+chmod 0755 /usr/local/bin/andrew-first-login /usr/local/bin/andrew-welcome 2>/dev/null || true
+
+# Ensure the wallpaper and welcome page are readable by normal users.
+chmod -R a+rX /usr/share/backgrounds/andrew-os /usr/share/andrew-os 2>/dev/null || true
