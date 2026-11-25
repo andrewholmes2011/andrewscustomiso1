@@ -6,7 +6,7 @@
 
 ## Project status
 
-This repository contains the reproducible live-build configuration and customization files for the first development image. The source is committed; an ISO is **not** built or tested by GitHub automatically. Build it on a Debian 13 or compatible Linux host using the instructions below, then test the ISO in VirtualBox.
+This repository contains the repeatable live-build configuration and customization files for the first development image. The source is committed; an ISO is **not** built or tested by GitHub automatically. Build it on a Debian 13 or compatible Linux host using the instructions below, then test the ISO in VirtualBox.
 
 ## What is included
 
@@ -34,17 +34,19 @@ This repository contains the reproducible live-build configuration and customiza
 │   ├── package-lists/andrew-os.list.chroot
 │   ├── hooks/normal/0100-andrew-branding.hook.chroot
 │   └── includes.chroot/
-│       ├── etc/issue
-│       ├── etc/hostname
-│       ├── etc/sddm.conf.d/andrew-os.conf
-│       ├── etc/skel/.config/kdeglobals
-│       ├── etc/skel/.config/autostart/andrew-first-login.desktop
-│       ├── usr/local/bin/andrew-first-login
-│       ├── usr/local/bin/andrew-welcome
-│       ├── usr/share/applications/andrew-welcome.desktop
-│       ├── usr/share/backgrounds/andrew-os/wallpaper.svg
-│       └── usr/share/plasma/shells/org.kde.plasma.desktop/contents/layout.js
-│       └── usr/share/andrew-os/welcome/index.html
+│       ├── etc/
+│       │   ├── issue
+│       │   ├── hostname
+│       │   ├── sddm.conf.d/andrew-os.conf
+│       │   └── skel/.config/
+│       └── usr/
+│           ├── local/bin/andrew-first-login
+│           ├── local/bin/andrew-welcome
+│           ├── share/applications/andrew-welcome.desktop
+│           ├── share/backgrounds/andrew-os/wallpaper.svg
+│           └── share/andrew-os/
+│               ├── plasma/layout.js
+│               └── welcome/index.html
 └── docs/
     ├── BUILDING.md
     └── VIRTUALBOX.md
