@@ -24,6 +24,7 @@ fi
 
 mkdir -p "$DIST_DIR"
 cd "$ROOT_DIR"
+chmod 0755 config/hooks/normal/*.hook.chroot config/includes.chroot/usr/local/bin/andrew-first-login config/includes.chroot/usr/local/bin/andrew-welcome
 
 export DEBIAN_FRONTEND=noninteractive
 export SOURCE_DATE_EPOCH="${SOURCE_DATE_EPOCH:-$(date -u +%s)}"
