@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Welcome to Andrew OS
+GenericName=System welcome
+Comment=Learn about your Andrew OS desktop
+Exec=/usr/local/bin/andrew-welcome
+Icon=computer
+Terminal=false
+Categories=System;
+StartupNotify=true
