@@ -1,0 +1,10 @@
+[General]
+ColorScheme=BreezeDark
+Name=Andrew OS
+
+[KDE]
+LookAndFeelPackage=org.kde.breeze.desktop
+widgetStyle=Breeze
+
+[Icons]
+Theme=breeze-dark
