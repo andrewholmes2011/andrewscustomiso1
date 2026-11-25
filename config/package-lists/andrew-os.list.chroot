@@ -61,7 +61,5 @@ build-essential
 openssh-client
 p7zip-full
 
-# VirtualBox guest integration (Debian contrib)
-
 # Debian graphical live installer
 debian-installer-launcher
