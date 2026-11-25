@@ -20,7 +20,6 @@ fonts-noto-color-emoji
 # KDE Plasma desktop
 plasma-desktop
 plasma-workspace
-plasma-workspace-wayland
 kwin-wayland
 sddm
 sddm-theme-breeze
@@ -62,8 +61,6 @@ openssh-client
 p7zip-full
 
 # VirtualBox guest integration (Debian contrib)
-virtualbox-guest-utils
-virtualbox-guest-x11
 
 # Debian graphical live installer
 debian-installer-launcher
