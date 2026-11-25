@@ -12,6 +12,7 @@ This repository contains the reproducible live-build configuration and customiza
 
 - Debian 13 (Trixie), amd64
 - KDE Plasma desktop with Breeze Dark styling
+- Custom Plasma layout with a centered shelf, application dashboard, and right-aligned status area
 - Chromium and Firefox ESR
 - Dolphin file manager, Konsole terminal, Ark archive manager, and KDE System Settings
 - Network, audio, Bluetooth, power, and display integration
