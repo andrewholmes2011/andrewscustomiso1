@@ -26,7 +26,7 @@
 
 ## Guest integration
 
-The image includes Debian's VirtualBox guest utilities where available. If resizing, pointer integration, or clipboard sharing does not work:
+Guest Additions are not bundled into the ISO. If resizing, pointer integration, or clipboard sharing does not work:
 
 1. Update VirtualBox on the host.
 2. Update the guest packages after installation.
