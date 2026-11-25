@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101827"/>
+      <stop offset=".55" stop-color="#172b46"/>
+      <stop offset="1" stop-color="#101522"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#4c8dca" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#4c8dca" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="1450" cy="400" r="620" fill="url(#glow)"/>
+  <g fill="none" stroke="#7db7e8" stroke-opacity=".16" stroke-width="3">
+    <path d="M1050 150 C1450 80 1690 260 1780 620"/>
+    <path d="M1010 205 C1390 130 1630 330 1710 690"/>
+    <path d="M970 260 C1320 190 1570 390 1640 750"/>
+    <path d="M930 315 C1260 250 1500 450 1570 810"/>
+  </g>
+  <g font-family="Inter, Noto Sans, sans-serif">
+    <text x="132" y="820" fill="#f2f6fc" font-size="76" font-weight="700" letter-spacing="5">ANDREW OS</text>
+    <text x="138" y="880" fill="#9ebbd7" font-size="25" letter-spacing="7">A SIMPLER DESKTOP EXPERIENCE</text>
+  </g>
+</svg>
