@@ -1,57 +1,77 @@
-# Windows 11 Andrew Edition
+# Andrew OS
 
-A reproducible builder for a personalized Windows 11 Pro installation ISO, intended for Oracle VirtualBox.
+**Andrew OS** is a Debian 13-based, ChromeOS-inspired Linux distribution designed first for Oracle VirtualBox (x86-64). It uses KDE Plasma as its desktop foundation and applies Andrew OS branding, a dark visual theme, Chromium, a familiar bottom-panel workflow, and a straightforward Debian Live installer.
 
-## Repository contents
-- PowerShell ISO builder using official Microsoft Windows 11 media supplied by you.
-- Windows Setup OEM integration for post-install configuration.
-- Modern-dark theme, OEM identity, generated wallpaper, and taskbar preferences.
-- Conservative removal of selected optional consumer inbox apps.
-- Optional app installation through Windows Package Manager (winget).
+> Andrew OS is an independent Linux project. It is not ChromeOS, ChromiumOS, or an official Google product, and it does not contain proprietary Google components.
 
-> This repository does not include Windows binaries, an ISO, product keys, activation bypasses, or Microsoft installation media. Obtain the ISO from Microsoft and use a valid Windows license.
+## Project status
 
-## Feature notes
-- Windows 11 Pro: selects Professional when present in the source media.
-- Appearance: dark app/system theme and custom generated wallpaper.
-- Branding: OEM Manufacturer/Model values.
-- Start/taskbar: stable taskbar preferences; Start pin layout is not forced because it varies by Windows build.
-- Lock screen: writes a lock-screen policy; enforcement varies by build and policy.
-- Apps: winget installs configured packages after first sign-in; internet required.
-- Debloat: removes only explicitly listed optional Appx packages.
-- Local account: use the supported local-account path offered by Windows Setup; no password is embedded.
-- Boot screen: original Microsoft-signed boot assets are retained. Replacing them is excluded because it can break Secure Boot and servicing.
+This repository contains the reproducible live-build configuration and customization files for the first development image. The source is committed; an ISO is **not** built or tested by GitHub automatically. Build it on a Debian 13 or compatible Linux host using the instructions below, then test the ISO in VirtualBox.
 
-## Requirements
-- Windows 10/11 build host and Administrator PowerShell.
-- Official Windows 11 ISO containing Windows 11 Pro.
-- Windows ADK Deployment Tools (provides oscdimg.exe).
-- Approximately 20 GB or more free disk space.
+## What is included
 
-Downloads: https://www.microsoft.com/software-download/windows11
-ADK: https://learn.microsoft.com/windows-hardware/get-started/adk-install/
+- Debian 13 (Trixie), amd64
+- KDE Plasma desktop with Breeze Dark styling
+- Chromium and Firefox ESR
+- Dolphin file manager, Konsole terminal, Ark archive manager, and KDE System Settings
+- Network, audio, Bluetooth, power, and display integration
+- Andrew OS wallpaper, welcome page, desktop entry, and OS identity
+- Debian Live boot environment and graphical Debian Installer integration
+- VirtualBox guest utilities and X11 integration where supported by the Debian archive
+- A conservative package set; no security controls or system services are intentionally disabled
 
-## Build
-1. Download the official Windows 11 ISO.
-2. Install Windows ADK and select Deployment Tools.
-3. Open PowerShell as Administrator in this repository.
-4. Run:
+## Repository layout
 
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-.\Build-Windows11AndrewEdition.ps1 -SourceIso "C:\ISO\Win11.iso" -OutputIso "C:\ISO\Windows11-Andrew-Edition.iso"
+```text
+.
+├── README.md
+├── build.sh
+├── clean.sh
+├── LICENSE
+├── .gitignore
+├── config/
+│   ├── package-lists/andrew-os.list.chroot
+│   ├── hooks/normal/0100-andrew-branding.hook.chroot
+│   └── includes.chroot/
+│       ├── etc/os-release
+│       ├── etc/issue
+│       ├── etc/hostname
+│       ├── etc/sddm.conf.d/andrew-os.conf
+│       ├── etc/skel/.config/kdeglobals
+│       ├── etc/skel/.config/autostart/andrew-first-login.desktop
+│       ├── usr/local/bin/andrew-first-login
+│       ├── usr/local/bin/andrew-welcome
+│       ├── usr/share/applications/andrew-welcome.desktop
+│       ├── usr/share/backgrounds/andrew-os/wallpaper.svg
+│       └── usr/share/andrew-os/welcome/index.html
+└── docs/
+    ├── BUILDING.md
+    └── VIRTUALBOX.md
 ```
 
-Edit config.psd1 to change winget package IDs and the conservative Appx removal list. Do not remove Defender, Firewall, Windows Update, Store infrastructure, system frameworks, or servicing components.
+## Build at a glance
 
-## VirtualBox
-- Type: Microsoft Windows; Version: Windows 11 (64-bit).
-- RAM: 4–8 GB; CPUs: 2–4; disk: 64 GB or larger.
-- Enable EFI and TPM 2.0 if supported by your VirtualBox version.
-- Attach the ISO to the virtual optical drive. After setup, install Guest Additions inside the guest using Devices → Insert Guest Additions CD Image.
+Build on a clean Debian 13 amd64 machine or VM. The build needs an internet connection, administrator privileges, and substantial free disk space (allow at least 25 GB).
 
-## Logs
-- First-sign-in customization: C:\ProgramData\AndrewEdition\FirstLogon.log
-- Windows Setup logs: C:\Windows\Panther\
+```bash
+git clone https://github.com/andrewholmes2011/andrewscustomiso1.git
+cd andrewscustomiso1
+sudo ./build.sh
+```
 
-The builder does not activate Windows or provide a product key. Use a valid license.
+The output is written to `dist/Andrew-OS-amd64.iso`.
+
+See [docs/BUILDING.md](docs/BUILDING.md) for prerequisites, clean builds, and troubleshooting. See [docs/VIRTUALBOX.md](docs/VIRTUALBOX.md) for VM settings.
+
+## Important notes
+
+- This is a live image with the Debian Installer included. The installer installs the live system to the virtual disk; partitioning is destructive to the selected target disk. In VirtualBox, use a new disposable virtual disk for testing.
+- The live session is for evaluation. Create your own user account and password during installation.
+- The build uses Debian repositories and Debian's live-build toolchain. Package availability can change; inspect build logs if a package is unavailable.
+- VirtualBox guest integration depends on the installed VirtualBox version and host capabilities. Install the matching Guest Additions inside the guest if automatic integration is incomplete.
+- No Google account integration, ChromeOS source code, proprietary Google apps, or Google services are bundled.
+- No ISO, third-party binary blob, product key, or activation bypass is stored in this repository.
+
+## License
+
+Project-authored scripts, configuration, and documentation are provided under the MIT License. Third-party packages retain their own licenses; see their respective copyright and license notices.
