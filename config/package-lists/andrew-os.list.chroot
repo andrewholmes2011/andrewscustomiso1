@@ -1,0 +1,69 @@
+# Core live system
+live-boot
+live-config
+live-config-systemd
+live-task-standard
+sudo
+systemd-sysv
+network-manager
+network-manager-gnome
+ca-certificates
+curl
+wget
+less
+bash-completion
+locales
+fonts-dejavu
+fonts-noto
+fonts-noto-color-emoji
+
+# KDE Plasma desktop
+plasma-desktop
+plasma-workspace
+plasma-workspace-wayland
+kwin-wayland
+sddm
+sddm-theme-breeze
+breeze
+breeze-gtk-theme
+plasma-nm
+plasma-pa
+bluedevil
+powerdevil
+systemsettings
+dolphin
+konsole
+ark
+kde-spectacle
+kde-config-screenlocker
+plasma-discover
+kio-extras
+xdg-desktop-portal-kde
+xdg-desktop-portal
+dbus-user-session
+polkit-kde-agent-1
+
+# Browsing and everyday applications
+chromium
+firefox-esr
+vlc
+libreoffice-writer
+libreoffice-calc
+file-roller
+
+# System utilities
+gparted
+ufw
+git
+python3
+python3-gi
+build-essential
+openssh-client
+p7zip-full
+
+# VirtualBox guest integration (Debian contrib)
+virtualbox-guest-utils
+virtualbox-guest-x11
+
+# Debian graphical live installer
+debian-installer-launcher
