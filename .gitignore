@@ -1,0 +1,19 @@
+# live-build generated state
+.chroot/
+.binary/
+.build/
+.cache/
+config/binary
+config/bootstrap
+config/chroot
+config/common
+config/source
+binary/
+chroot/
+cache/
+*.deb
+*.udeb
+*.iso
+*.img
+*.log
+dist/
