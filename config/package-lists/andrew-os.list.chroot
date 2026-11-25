@@ -19,6 +19,7 @@ fonts-noto-color-emoji
 
 # KDE Plasma desktop
 plasma-desktop
+plasma-widgets-addons
 plasma-workspace
 kwin-wayland
 sddm
