@@ -34,7 +34,6 @@ This repository contains the reproducible live-build configuration and customiza
 │   ├── package-lists/andrew-os.list.chroot
 │   ├── hooks/normal/0100-andrew-branding.hook.chroot
 │   └── includes.chroot/
-│       ├── etc/os-release
 │       ├── etc/issue
 │       ├── etc/hostname
 │       ├── etc/sddm.conf.d/andrew-os.conf
@@ -44,6 +43,7 @@ This repository contains the reproducible live-build configuration and customiza
 │       ├── usr/local/bin/andrew-welcome
 │       ├── usr/share/applications/andrew-welcome.desktop
 │       ├── usr/share/backgrounds/andrew-os/wallpaper.svg
+│       └── usr/share/plasma/shells/org.kde.plasma.desktop/contents/layout.js
 │       └── usr/share/andrew-os/welcome/index.html
 └── docs/
     ├── BUILDING.md
