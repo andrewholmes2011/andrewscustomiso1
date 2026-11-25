@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+PAGE="/usr/share/andrew-os/welcome/index.html"
+if command -v chromium >/dev/null 2>&1; then
+  exec chromium --app="file://$PAGE"
+elif command -v firefox-esr >/dev/null 2>&1; then
+  exec firefox-esr "file://$PAGE"
+else
+  xdg-open "file://$PAGE"
+fi
